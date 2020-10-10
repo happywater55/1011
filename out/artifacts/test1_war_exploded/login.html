@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <style>
+        .binglie {
+            vertical-align: middle;
+        }
+
+        .inputbinglie {
+
+            width: 50%;
+            /*vertical-align: middle;*/
+            /*white-space: nowrap;*/
+        }
+    </style>
+</head>
+<script>
+    function changeCode() {
+        var codeImg = document.getElementById("verifyCode");
+        codeImg.src = "/CreateImage?t" + Math.random();
+        console.log(codeImg.src);
+    }
+</script>
+<body>
+
+
+<!--    <form action="http://localhost:8080/Test1" method="get">-->
+<!--        <p>-->
+<!--            <label for="userName" class="lableStyle">用户名：</label>-->
+<!--            <input type="text" name="userName"/>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label for="password" class="lableStyle">密码：</label>-->
+<!--            <input type="password" name="password"/>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label for="vCode" >验证码：</label>-->
+
+<!--            <input type="text" name="vCode"/>-->
+<!--            <img src="http://localhost:8080/CreateImage" alt="">-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <input type="submit" value="登录"/>-->
+<!--        </p>-->
+<!--    </form>-->
+<div class="container" style="width: 300px">
+
+    <form class="form-signin" method="post" action="http://localhost:8080/login">
+        <h2 class="form-signin-heading" style="text-align: center">请登录</h2>
+        <label for="inputUsername" class="sr-only">Email address</label>
+        <input type="username" name="username" id="inputUsername" class="form-control" placeholder="用户名" required=""
+               autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required="">
+
+        <span class=" " >
+            <img src="http://localhost:8080/CreateImage" alt="" class="col-md-6" id="verifyCode"
+                 title="看不清换一张" onclick="changeCode()" style="cursor:pointer;">
+            <label for="vCode" class="sr-only"></label>
+
+            <input type="text" name="vCode" id="inputVCode" class=" form-control inputbinglie" placeholder="请输入验证码"
+                   required="">
+
+<!--            <input type="text" class="form-control">-->
+        </span>
+        <div class="checkbox">
+            <label for="">
+                <input type="checkbox" class="checkbox" id="inputRemember" value="1" name="Remember">七天免登陆
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+
+</div>
+</body>
+</html>
